@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>360&deg; Image Gallery</title>
+    <meta name="description" content="360&deg; Image Gallery - A-Frame">
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://unpkg.com/aframe-layout-component@4.3.1/dist/aframe-layout-component.min.js"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+    <script src="components/set-image.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="city" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
+        <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+
+        <img id="Acadia" crossorigin="anonymous" src="./components/img/Acadia.jpg">
+        <img id="Algonquin" crossorigin="anonymous" src="./components/img/Algonquin.jpg">
+        <img id="Badlands" crossorigin="anonymous" src="./components/img/Badlands.jpg">
+        <img id="Boottspur" crossorigin="anonymous" src="./components/img/Boottspur.jpg">
+        <img id="BryceFairyland" crossorigin="anonymous" src="./components/img/BryceFairyland.jpg">
+        <img id="CanyonlandsNeedlesOverlook02" crossorigin="anonymous" src="./components/img/CanyonlandsNeedlesOverlook02.jpg">
+        <!-- <img id="CapitolReef" crossorigin="anonymous" src="./components/img/CapitolReef.jpg">
+        <img id="CapitolReef03" crossorigin="anonymous" src="./components/img/CapitolReef03.jpg">
+        <img id="Cascade" crossorigin="anonymous" src="./components/img/Cascade.jpg">
+        <img id="DantesView" crossorigin="anonymous" src="./components/img/DantesView.jpg">
+        <img id="GlacierNationalPark" crossorigin="anonymous" src="./components/img/GlacierNationalPark.jpg">
+        <img id="HohRainforest" crossorigin="anonymous" src="./components/img/HohRainforest.jpg">
+        <img id="JoshuaTree" crossorigin="anonymous" src="./components/img/JoshuaTree.jpg">
+        <img id="LakeGeorge01" crossorigin="anonymous" src="./components/img/LakeGeorge01.jpg">
+        <img id="LakeGeorge02" crossorigin="anonymous" src="./components/img/LakeGeorge02.jpg">
+        <img id="Montana" crossorigin="anonymous" src="./components/img/Montana.jpg">
+        <img id="MountRainier" crossorigin="anonymous" src="./components/img/MountRainier.jpg">
+        <img id="MountStHelens" crossorigin="anonymous" src="./components/img/MountStHelens.jpg">
+        <img id="OlympicHurricaneRidge" crossorigin="anonymous" src="./components/img/OlympicHurricaneRidge.jpg">
+        <img id="SaguaroWest" crossorigin="anonymous" src="./components/img/SaguaroWest.jpg">
+        <img id="Sedona02" crossorigin="anonymous" src="./components/img/Sedona02.jpg">
+        <img id="SkylineArch" crossorigin="anonymous" src="./components/img/SkylineArch.jpg"> -->
+
+        <img id="Acadia-thumb" crossorigin="anonymous" src="./components/img/Thumb/acadia-thumb.png">
+        <img id="Algonquin-thumb" crossorigin="anonymous" src="./components/img/Thumb/Algonquin-thumb.png">
+        <img id="Badlands-thumb" crossorigin="anonymous" src="./components/img/Thumb/Badlands-thumb.png">
+        <img id="Boottspur-thumb" crossorigin="anonymous" src="./components/img/Thumb/Boottspur-thumb.png">
+        <img id="BryceFairyland-thumb" crossorigin="anonymous" src="./components/img/Thumb/BryceFairyland-thumb.png">
+        <img id="CanyonlandsNeedlesOverlook02-thumb" crossorigin="anonymous" src="./components/img/Thumb/canyonlands-thumb.png">
+        <!-- <img id="CapitolReef-thumb" crossorigin="anonymous" src="./components/img/Thumb/CapitolReef-thumb.png">
+        <img id="CapitolReef03-thumb" crossorigin="anonymous" src="./components/img/Thumb/CapitolReef03-thumb.png">
+        <img id="Cascade-thumb" crossorigin="anonymous" src="./components/img/Thumb/Cascade-thumb.png">
+        <img id="DantesView-thumb" crossorigin="anonymous" src="./components/img/Thumb/DantesView-thumb.png">
+        <img id="GlacierNationalPark-thumb" crossorigin="anonymous" src="./components/img/Thumb/GlacierNationalPark-thumb.png">
+        <img id="HohRainforest-thumb" crossorigin="anonymous" src="./components/img/Thumb/HohRainforest-thumb.png">
+        <img id="JoshuaTree-thumb" crossorigin="anonymous" src="./components/img/Thumb/JoshuaTree-thumb.png">
+        <img id="LakeGeorge01-thumb" crossorigin="anonymous" src="./components/img/Thumb/LakeGeorge01-thumb.png">
+        <img id="LakeGeorge02-thumb" crossorigin="anonymous" src="./components/img/Thumb/LakeGeorge02-thumb.png">
+        <img id="Montana-thumb" crossorigin="anonymous" src="./components/img/Thumb/Montana-thumb.png">
+        <img id="MountRainier-thumb" crossorigin="anonymous" src="./components/img/Thumb/MountRainier-thumb.png">
+        <img id="MountStHelens-thumb" crossorigin="anonymous" src="./components/img/Thumb/MountStHelens-thumb.png">
+        <img id="OlympicHurricaneRidge-thumb" crossorigin="anonymous" src="./components/img/Thumb/OlympicHurricaneRidge-thumb.png">
+        <img id="SaguaroWest-thumb" crossorigin="anonymous" src="./components/img/Thumb/SaguaroWest-thumb.png">
+        <img id="Sedona02-thumb" crossorigin="anonymous" src="./components/img/Thumb/Sedona02-thumb.png">
+        <img id="SkylineArch-thumb" crossorigin="anonymous" src="./components/img/Thumb/SkylineArch-thumb.png"> -->
+
+        <!-- Image link template to be reused. -->
+        <script id="link" type="text/html">
+          <a-entity class="link"
+            geometry="primitive: plane; height: 1; width: 1"
+            material="shader: flat; src: ${thumb}"
+            event-set__1="_event: mousedown; scale: 1 1 1"
+            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+            event-set__4="_event: mouseleave; scale: 1 1 1"
+            set-image="on: click; target: #image-360; src: ${src}"
+            sound="on: click; src: #click-sound"></a-entity>
+        </script>
+      </a-assets>
+
+      <!-- 360-degree image. -->
+      <a-sky id="image-360" radius="10" src="#city"></a-sky>
+
+      <!-- Image links. -->
+      <a-entity id="links" layout="type: circle; radius: 2" position="0 -1 -4">
+
+        <a-entity template="src: #link" data-src="#Acadia" data-thumb="#Acadia-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#Algonquin" data-thumb="#Algonquin-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#Badlands" data-thumb="#Badlands-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#Boottspur" data-thumb="#Boottspur-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#BryceFairyland" data-thumb="#BryceFairyland-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#CanyonlandsNeedlesOverlook02" data-thumb="#CanyonlandsNeedlesOverlook02-thumb"></a-entity>
+        <!-- <a-entity template="src: #link" data-src="#CapitolReef" data-thumb="#CapitolReef-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#CapitolReef03" data-thumb="#CapitolReef03-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#Cascade" data-thumb="#Cascade-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#DantesView" data-thumb="#DantesView-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#GlacierNationalPark" data-thumb="#GlacierNationalPark-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#HohRainforest" data-thumb="#HohRainforest-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#JoshuaTree" data-thumb="#JoshuaTree-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#LakeGeorge01" data-thumb="#LakeGeorge01-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#LakeGeorge02" data-thumb="#LakeGeorge02-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#Montana" data-thumb="#Montana-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#MountRainier" data-thumb="#MountRainier-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#MountStHelens" data-thumb="#MountStHelens-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#OlympicHurricaneRidge" data-thumb="#OlympicHurricaneRidge-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#SaguaroWest" data-thumb="#SaguaroWest-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#Sedona02" data-thumb="#Sedona02-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#SkylineArch" data-thumb="#SkylineArch-thumb"></a-entity> -->      
+      </a-entity>
+
+      <!-- Camera + cursor. -->
+      <a-entity camera look-controls>
+        <a-cursor id="cursor"
+          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+          event-set__1="_event: mouseenter; color: springgreen"
+          event-set__2="_event: mouseleave; color: black"
+          fuse="true"
+          raycaster="objects: .link"></a-cursor>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
